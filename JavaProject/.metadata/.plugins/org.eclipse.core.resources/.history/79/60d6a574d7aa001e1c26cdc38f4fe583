@@ -5,6 +5,8 @@
 ㅋㅋㅋㅋ
 git init
 git add .
+
+이거부터 시작
 git commit -m "1"
 git push origin master <!--이클립스에서 올릴때-->
-git pull origin master <!--깃에서 올릴때-->
+git pull origin master
