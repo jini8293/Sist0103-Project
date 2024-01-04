@@ -3,8 +3,10 @@
 
 
 ㅋㅋㅋㅋ
-
+git init
 git add .
+
+이거부터 시작
 git commit -m "1"
 git push origin master
 git pull origin master
