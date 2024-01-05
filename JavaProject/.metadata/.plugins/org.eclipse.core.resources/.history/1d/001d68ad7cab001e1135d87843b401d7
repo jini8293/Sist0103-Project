@@ -1,0 +1,32 @@
+package day0105;
+
+public class IfOperTest_11 {
+
+	public static void main(String[] args) {
+		//삼항연산자
+		//구하려는 값 = 수식1? "참" : "거짓"
+		
+		//if문과 삼항연산자 비교
+		
+		int sc = 80;
+		String gr; //학점
+		
+		if(sc>=90) {
+			gr="A";
+		}else if (sc>=80) {
+			gr="B";
+		}else if (sc>=70) {
+			gr="C";
+		}else if (sc>=60) {
+			gr="D";
+		}else {
+			gr="F";
+		}
+		System.out.println("학점은 " + gr + "입니다.");
+		
+		
+		
+
+	}
+
+}
