@@ -1,0 +1,30 @@
+package day0108;
+
+import java.util.Scanner;
+
+public class OperReview_01 {
+
+	public static void main(String[] args) {
+
+		// import, 선언, 입력, 계산, 출력
+
+		Scanner s = new Scanner(System.in);
+
+		String name;
+		int kor, eng, mat;
+
+		System.out.println("이름을 입력하세요.");
+		name = s.nextLine();
+		System.out.println("국영수 점수?");
+		kor = s.nextInt();
+		eng = s.nextInt();
+		mat = s.nextInt();
+
+		double avg = (kor + eng + mat) / 3.0;
+
+		System.out.println("3과목의 점수: " + kor + "," + eng + "," + mat);
+		System.out.println("평균: " + avg);
+
+	}
+
+}

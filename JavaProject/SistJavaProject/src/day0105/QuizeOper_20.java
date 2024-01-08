@@ -26,7 +26,9 @@ public class QuizeOper_20 {
 		 * }
 		 * 
 		 * if (num>=5) {
-		 * 	d = ((ch*num)-((ch*num)*0.9)); }else { d = 0; 
+		 * 	d = ((ch*num)-((ch*num)*0.9)); 
+		 * }else { 
+		 * 	d = 0; 
 		 * }
 		 */
 		if (num >= 5) {
