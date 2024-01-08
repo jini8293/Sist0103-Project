@@ -24,6 +24,17 @@ public class SumTest_11 {
 		}
 
 		System.out.println("1~10까지의 합: " +tot+"입니다.");
+		
+		System.out.println("for문으로 1~10까지중 2씩 증가할 경우의 합계를 구하시오");
+		int a;
+		int er=0;
+		for(a=1;a<=10;a+=2) {
+			er+=a;
+		}
+		System.out.println("1~10까지중 2씩 증가된 수의 합: " +er+"입니다.");
+		
+		
+		
 	}
 
 }

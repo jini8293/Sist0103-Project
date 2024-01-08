@@ -1,0 +1,89 @@
+package day0108;
+
+public class QuizForWhle_15 {
+	
+	public static void test1() {
+		
+		//1. 1~100까지의 3의 배수 구하기
+
+		int n=0;
+		int cnt=0;
+		
+		while(true) {
+			n++; //0이였으니 1 증가시킴
+			if(n%3==0) {
+				cnt++;
+			}
+			if(n==100) {
+				break;
+			}
+		}
+		System.out.println("3의 배수 갯수는 "+cnt+"개");
+		
+	}
+	
+	public static void test2() {
+		
+		int n=0;
+		int cnt=0;
+		
+		while(true) {
+			n++;
+			if(n%2==1) {
+				continue;
+			}
+			cnt+=n;
+			if(n==100) {
+				break;
+			}
+		}
+		System.out.println("1~100까지 짝수의 합은 "+cnt);
+
+	
+	}
+	
+	
+	public static void test3() {
+
+		int a;
+		int cmd=0;
+		
+		for(a=0;a<=100;a++) {
+			
+			if(cmd%3==1) {
+				continue;
+			}
+			cmd+=1;
+			if(a==100) {
+				break;
+			}
+		}
+		System.out.println("1~100까지 홀수의 합은 "+cmd);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+
+
+	public static void main(String[] args) {
+		
+		//test1();
+		test2();
+		//test3();
+		
+
+
+	}
+
+}
