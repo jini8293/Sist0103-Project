@@ -12,7 +12,7 @@ public class Quiz_18 {
 		int n;
 		int cnt = 0, tot = 0;
 
-		while (true) {
+		while (true) { // 무한루프라 브레이크줘야함
 			System.out.println();
 			n = s.nextInt();
 			if (n == 0) {
@@ -23,7 +23,7 @@ public class Quiz_18 {
 			} else {
 				tot++;
 			}
-			
+
 		}
 		System.out.println("양수의 갯수 " + cnt + "개");
 		System.out.println("음수의 갯수 " + tot + "개");
@@ -42,7 +42,7 @@ public class Quiz_18 {
 			if (a == 0) {
 				break;
 			}
-			if (a < 0 || a > 100) {
+			if (a < 0 || a >= 100) {
 				System.out.println("\t잘못입력했어요(1~100)");
 				continue;
 			}
@@ -62,8 +62,8 @@ public class Quiz_18 {
 
 	public static void main(String[] args) {
 
-		 quiz_1();
-		//quiz_2();
+		quiz_1();
+		// quiz_2();
 
 	}
 

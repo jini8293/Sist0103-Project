@@ -1,0 +1,21 @@
+package day0109;
+
+import java.util.Random;
+
+public class RandomSu_06 {
+
+	public static void main(String[] args) {
+
+		Random r = new Random();
+
+		System.out.println("1~10사이의 랜덤수를 발생시켜 그 숫자 맞추기");
+
+		for (int i = 1; i <= 5; i++) {
+			int a = r.nextInt(10)+1; // 0~9
+			System.out.println(a);
+		}
+		System.out.println("---------------------------");
+
+	}
+
+}
