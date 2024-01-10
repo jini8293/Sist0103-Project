@@ -1,0 +1,27 @@
+package day0110;
+
+public class ObjectEx_07 {
+	
+	String name; //인스턴스 멤버변수 -> 반드시 생성후 쓸수있음
+	static final String MESSAGE="Happy day"; //static 멤버변수 -> 주로 상수로 선언
+	
+	//객체생성없이 바로 클래스명으로 접근 가능
+	
+	
+	
+	
+	
+	
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("statuc멤버 변수느 new 생성없이 호출 가능");
+		System.out.println(MESSAGE);
+		
+		
+	}
+
+}
