@@ -3,7 +3,7 @@ package day0109;
 import java.util.Scanner;
 
 public class QuizInOutRank_16 {
-	public static void Q_01() {
+public static void Q_01() {
 		
 		Scanner s = new Scanner(System.in);
 		
@@ -24,7 +24,7 @@ public class QuizInOutRank_16 {
 		int x,y;
 		int g=1;
 		
-		System.out.print("두 수를 입력하세요: ");
+		System.out.println("두 수를 입력하세요: ");
 		x=s.nextInt();
 		y=s.nextInt();
 		
@@ -39,7 +39,18 @@ public class QuizInOutRank_16 {
 	
 	public static void Q_03() {
 		
+		int ztot = 0;
+		int htot = 0;
 		
+		for(int i=1;i<=100;i++) {
+			if(i%2==0) {
+				ztot+=i;
+			}else {
+				htot+=i;
+			}
+		}
+		System.out.println("짝수의 합계: "+ztot);
+		System.out.println("홀수의 합계: "+htot);
 	}
 	
 	public static void main(String[] args) {
@@ -59,7 +70,7 @@ public class QuizInOutRank_16 {
 		//3. 1~100까지의 짝수의 합과 홀수의 합을 나눠서 출력 
 		//for문 이용 
 		
-		//4. 
+
 		
 		
 		
