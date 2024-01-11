@@ -102,8 +102,6 @@ public class SawonInstanceScanner_15 {
 		
 		//배열할당
 		emp = new Emp[inwon];
-		
-		//인원수만큼 데이터 입력
 		for (int i=0;i<inwon;i++) {
 			emp[i]=new Emp();
 			System.out.print("이름: ");
@@ -115,7 +113,6 @@ public class SawonInstanceScanner_15 {
 			System.out.print("초과근무시간: ");
 			int tsu=Integer.parseInt(s.nextLine());
 			
-			//setter로 emp클래스에 데이터 넣기
 			emp[i].setsName(name);
 			emp[i].setgPay(pay);
 			emp[i].setfSu(fsu);
