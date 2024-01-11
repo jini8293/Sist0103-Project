@@ -1,0 +1,27 @@
+package day0111;
+
+import java.util.Scanner;
+
+class {
+	
+	String name;//사원명
+	int charge;//기본급
+	int dbc;//자녀수
+	int ot;//초과근무시간
+	
+	
+	public void title() {
+		
+	}
+	
+}
+
+public class SawonInstanceScanner_15 {
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner();
+
+	}
+
+}
