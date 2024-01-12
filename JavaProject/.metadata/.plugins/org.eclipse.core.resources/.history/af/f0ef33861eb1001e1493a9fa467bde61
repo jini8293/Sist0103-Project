@@ -1,0 +1,14 @@
+package day0112;
+
+interface InterA{
+	
+}
+
+public class InterImpl_14 {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
