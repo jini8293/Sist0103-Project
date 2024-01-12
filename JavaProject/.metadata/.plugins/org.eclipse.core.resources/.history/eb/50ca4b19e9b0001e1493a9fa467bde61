@@ -1,0 +1,95 @@
+package day0112;
+
+import java.util.Scanner;
+
+import day0111.Sangyong;
+
+class Shop {
+
+	private String sName;
+	private int sPrice;
+	private String sColor;
+	private int num;
+
+	public String getsName() {
+		return sName;
+	}
+
+	public void setsName(String sName) {
+		this.sName = sName;
+	}
+
+	public int getsPrice() {
+		return sPrice;
+	}
+
+	public void setsPrice(int sPrice) {
+		this.sPrice = sPrice;
+	}
+
+	public String getsColor() {
+		return sColor;
+	}
+
+	public void setsColor(String sColor) {
+		this.sColor = sColor;
+	}
+
+	public static int getNum() {
+		return num;
+	}
+
+	public static void setNum(int num) {
+		Shop.num = num;
+	}
+
+	public static String getName() {
+		return name;
+	}
+
+	public static void setName(String name) {
+		Shop.name = name;
+	}
+
+	public static void getTitle() {
+		System.out.println("[쌍용매장 입고상품]");
+		System.out.println();
+		System.out.println("번호\t상품명\t가격\t색상");
+		System.out.println("=============================");
+	}
+}
+
+public class ArrReview_02 {
+
+	public static void showData(Shop[] shop) {
+		Shop.getTitle();
+		for (Shop s : shop) {
+			System.out.println(s.getNum() + "\t" + s.getsName() + "\t" + s.getsPrice() + "\t" + s.getsColor());
+
+		}
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner s = new Scanner(System.in);
+		
+		Shop [] shop;
+		
+		shop = new Sangyong[];
+		
+		for(int i=0; i<shop.length;i++) {
+			shop[i]=new Shop();
+			System.out.print("상품 이름: ");
+			String sname = s.nextLine();
+			System.out.print("상품 가격: ");
+			int sprice = Integer.parseInt(s.nextLine());
+			System.out.print("상품 색상: ");
+			String scolor = s.nextLine();
+			
+			
+		}
+		
+
+	}
+
+}

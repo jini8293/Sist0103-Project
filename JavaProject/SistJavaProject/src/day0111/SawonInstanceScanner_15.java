@@ -115,6 +115,9 @@ public class SawonInstanceScanner_15 {
 			System.out.print("초과근무시간: ");
 			int tsu=Integer.parseInt(s.nextLine());
 			
+			
+			//emp[i] = new Emp(name,pay,fsu,tsu);
+			
 			//setter로 emp클래스에 데이터 넣기
 			emp[i].setsName(name);
 			emp[i].setgPay(pay);
