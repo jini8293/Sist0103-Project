@@ -37,7 +37,7 @@ public class ShopArrayList {
 		for (int i = 0; i < list.size(); i++) {
 			Shop s = list.get(i);
 			System.out.printf("%d\t%s\t%d\t%d\t%d\n", (i + 1), s.getSangname(), s.getDan(), s.getSu(), s.getTot());
-			System.out.println("------------------------------------------------");
+System.out.println("------------------------------------------------");
 		}
 
 	}
