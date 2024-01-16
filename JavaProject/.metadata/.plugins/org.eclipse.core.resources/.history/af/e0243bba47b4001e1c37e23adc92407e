@@ -30,13 +30,9 @@ public class QuizFileException_15 {
 				}
 
 				cnt++;
-				
-				//split으로 분리
 				//String[] data = s.replace("\uFEFF", "").split(",");
 				//tot = Integer.parseInt(data[1]) * Integer.parseInt(data[2]);
 				//System.out.println(cnt + "\t" + data[0] + "\t" + data[1] + "\t" + data[2] + "\t" + tot);
-				
-				//StringTokenizer로 분리
 				StringTokenizer st = new StringTokenizer(s.replace("\uFEFF", ""), ",");
 				String name =st.nextToken();
 				int su = Integer.parseInt(st.nextToken());
