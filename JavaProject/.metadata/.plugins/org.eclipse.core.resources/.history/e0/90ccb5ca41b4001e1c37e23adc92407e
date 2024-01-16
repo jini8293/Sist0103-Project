@@ -1,0 +1,38 @@
+package day0116;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+public class QuizFileException_15 {
+	public static void fruitshop() throws FileNotFoundException, IOException {
+		String fName = "C:\\sist0103\\file\\fruitshop.txt";
+		FileReader fr = null;
+		BufferedReader br = null;
+		int cnt = 0;
+		int dan = 0;
+		int tot = 0;
+		
+		fr = new FileReader(fName);
+		br = new BufferedReader(fr);
+		
+		br.readLine();
+		while(true) {
+			String s = br.readLine();
+			if(s==null) {
+				break;
+			}
+			String[] data = s.split(",");
+			System.out.println(data[0] + "\t" + data[1] + "\t" + data[2]);
+			
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
