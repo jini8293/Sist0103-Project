@@ -62,8 +62,7 @@ public class SwingB_11 extends JFrame implements ActionListener {
 		btn[3].setForeground(Color.white);
 
 
-		tf = new JLabel("안녕하세요");
-		tf.setBounds(200, 170, 250, 60);
+		tf = new JLabel("안녕하세요", JLabel.CENTER);
 		tf.setFont(new Font("",Font.BOLD,30));
 		this.add(tf);
 
