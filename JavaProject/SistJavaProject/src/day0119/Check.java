@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,7 +49,6 @@ public class Check extends JFrame implements ItemListener, ActionListener {
 		man.addItemListener(this);
 		this.add(man);
 
-		
 		lbl = new JLabel("여자입니다.", JLabel.CENTER);
 		lbl.setBounds(20, 200, 300, 50);
 		lbl.setBorder(new LineBorder(Color.red, 5));
@@ -56,29 +56,38 @@ public class Check extends JFrame implements ItemListener, ActionListener {
 
 		String[] country = { "이탈리아", "미국", "호주", "일본" };
 		JPanel pB = new JPanel();
-		pB.setLayout(null);
-		pB.setBounds(20, 60, 100, 30);
+		// pB.setLayout(null);
+		pB.setBounds(20, 55, 300, 50);
 		pB.setBorder(new TitledBorder("내가가본나라"));
 		this.add(pB);
 		int x = 20;
 
 		for (int i = 0; i < con.length; i++) {
 			con[i] = new JCheckBox(country[i]);
-			//con[i].setBounds(x, 60, 100, 30);
-			//con[i].setOpaque(false);
+			con[i].setBounds(x, 55, 100, 30);
 			con[i].addActionListener(this);
 			pB.add(con[i]);
 			x += 85;
 		}
-		
-		String [] str = {"빨강","초록","핑크","파랑"};
+
+		String[] str = { "빨강", "초록", "핑크", "파랑" };
 		JPanel pTop = new JPanel();
-		pTop.setLayout(null);
+		// pTop.setLayout(null);
+		pTop.setBounds(20, 120, 300, 50);
 		pTop.setBorder(new TitledBorder("색상"));
 		this.add("West", pTop);
+
+		ButtonGroup bg = new ButtonGroup();
+		for (int i = 0; i < rb.length; i++) {
+			rb[i] = new JRadioButton(str[i], i == 1 ? true : false);
+			rb[i].setBounds(x, 120, 100, 30);
+			bg.add(rb[i]);
+			rb[i].addActionListener(this);
+			
+			pTop.add(rb[i]);
+			x += 85;
+		}
 		
-
-
 
 	}
 
@@ -86,23 +95,30 @@ public class Check extends JFrame implements ItemListener, ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
 
-	
-			String s = "내가 가본나라는 ";
-			int select = 0;
-			for (int i = 0; i < con.length; i++) {
-				if (con[i].isSelected()==true) {
-					select++;
-					s += "[" + con[i].getText() + "]";
-				}
+		String s = "내가 가본나라는 ";
+		int select = 0;
+		for (int i = 0; i < con.length; i++) {
+			if (con[i].isSelected() == true) {
+				select++;
+				s += "[" + con[i].getText() + "]";
 			}
-			if (select == 0) {
-				s += "없습니다.";
-			} else {
-				s += "입니다.";
-			}
-			lbl.setText(s);
 		}
+		if (select == 0) {
+			s += "없습니다.";
+		} else {
+			s += "입니다.";
+		}
+		lbl.setText(s);
+
 	
+		for (int i = 0; i < rb.length; i++) {
+			if (rb[i].isSelected()==true) {
+				cp.setBackground(colors[i]);
+			}
+				
+		}
+		
+	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
