@@ -11,6 +11,7 @@ public class ConnectTest {
 	static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
 
 	public void connectSawon() {
+
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -58,6 +59,7 @@ public class ConnectTest {
 	}
 
 	public void connectShop() {
+
 
 		Connection conn = null;
 		Statement stmt = null;
