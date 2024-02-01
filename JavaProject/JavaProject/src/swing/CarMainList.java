@@ -1,6 +1,7 @@
 package swing;
 
 import java.awt.Color;
+
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +42,6 @@ public class CarMainList extends JFrame implements ActionListener {
 	DefaultTableModel model;
 	JTable table;
 
-	CarDbModel cd = new CarDbModel();
 	MycarUpdate mycarupdate = new MycarUpdate();
 	DbConnect db = new DbConnect();
 
@@ -72,6 +73,9 @@ public class CarMainList extends JFrame implements ActionListener {
 		bt_jo.setBounds(240, 120, 80, 30);
 		add(bt_jo);
 		bt_jo.addActionListener(this);
+
+		mycarupdate.bt_su.addActionListener(this);
+		mycarupdate.bt_del.addActionListener(this);
 
 		String[] title = { "No", "회사", "모델명", "번호", "등록일자" };
 
@@ -170,11 +174,11 @@ public class CarMainList extends JFrame implements ActionListener {
 
 				int row = table.getSelectedRow();
 				if (row != -1) {
-				
-					String num = JOptionPane.showInputDialog("차량 번호 뒷자리를 입려해주세요~");
 
-					String sql = "select mycar_num, to_char(mycar_rd,'yyyy-mm-dd') mycar_rd, to_char(mycar_gumsa,'yyyy-mm-dd') mycar_gumsa, mycar_avgac, mycar_mile, mycar_engine, mycar_tire  from mycar where mycar_num like '%"
-							+ num + "%'";
+					String num = JOptionPane.showInputDialog("차량 번호 뒷자리를 입력해주세요.");
+
+					String sql = "select c.car_company, c.car_model,c.car_fuel, c.car_fe, c.car_op, c.car_dis, c.car_en, c.car_sh, c.car_size, c.car_price,m.mycar_num, to_char(m.mycar_rd,'yyyy-mm-dd') mycar_rd, to_char(m.mycar_gumsa,'yyyy-mm-dd') mycar_gumsa, m.mycar_avgac, m.mycar_mile, m.mycar_engine, m.mycar_tire \r\n"
+							+ "from car c,mycar m where m.mycar_num=c.mycar_num and m.mycar_num like '____" + num + "'";
 					Connection conn = db.getOracle();
 					PreparedStatement pstmt = null;
 					ResultSet rs = null;
@@ -183,6 +187,16 @@ public class CarMainList extends JFrame implements ActionListener {
 						pstmt = conn.prepareStatement(sql);
 						rs = pstmt.executeQuery();
 						if (rs.next()) {
+							mycarupdate.fuel.setText(rs.getString("car_fuel"));
+							mycarupdate.fe.setText(rs.getString("car_fe"));
+							mycarupdate.op.setText(rs.getString("car_op"));
+							mycarupdate.dis.setText(rs.getString("car_dis"));
+							mycarupdate.en.setText(rs.getString("car_en"));
+							mycarupdate.sh.setText(rs.getString("car_sh"));
+							mycarupdate.size.setText(rs.getString("car_size"));
+							mycarupdate.price.setText(rs.getString("car_price"));
+							mycarupdate.com.setText(rs.getString("car_company"));
+							mycarupdate.cmodel.setText(rs.getString("car_model"));
 							mycarupdate.tf1.setText(rs.getString("mycar_num"));
 							mycarupdate.tf2.setText(rs.getString("mycar_rd"));
 							mycarupdate.tf3.setText(rs.getString("mycar_gumsa"));
@@ -191,27 +205,103 @@ public class CarMainList extends JFrame implements ActionListener {
 							mycarupdate.cbengine.setSelectedItem(rs.getString("mycar_engine"));
 							mycarupdate.cbtire.setSelectedItem(rs.getString("mycar_tire"));
 
-							//mycarupdate.setVisible(true);
+							mycarupdate.setVisible(true);
 						}
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} finally {
 						db.dbClose(rs, pstmt, conn);
 					}
-					mycarupdate.setVisible(true);
+					// if (num == null) {
+					// mycarupdate.setVisible(false);
+					// }
 				}
 			}
 		});
 
 	}
 
+	public void updateMycar(String mnum) {
+
+		String mnum1 = mycarupdate.tf1.getText();
+		String mrd = mycarupdate.tf2.getText();
+		String mgumsa = mycarupdate.tf3.getText();
+		String mavgac = mycarupdate.tf4.getText();
+		String mengine = (String) mycarupdate.cbengine.getSelectedItem();
+		String mtire = (String) mycarupdate.cbtire.getSelectedItem();
+		String mmile = mycarupdate.tf5.getText();
+
+		String sql = "update mycar set mycar_num=?, mycar_rd=?, mycar_gumsa=?, mycar_avgac=?, mycar_engine=?, mycar_tire=?,mycar_mile=? where mycar_num Like '%"
+				+ mnum + "%'";
+
+		Connection conn = db.getOracle();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mnum1);
+			pstmt.setString(2, mrd);
+			pstmt.setString(3, mgumsa);
+			pstmt.setString(4, mavgac);
+			pstmt.setString(5, mengine);
+			pstmt.setString(6, mtire);
+			pstmt.setString(7, mmile);
+
+			int a = pstmt.executeUpdate();
+
+			if (a == 0) {
+				JOptionPane.showMessageDialog(this, "없는 번호입니다");
+			} else {
+				JOptionPane.showMessageDialog(this, "수정되었습니다");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+
+	}
+
+	public void deleteMycar(String mnum) {
+		String sql  = "delete from mycar where mycar_num like '____"+mnum+"'";
+		Connection conn = db.getOracle();
+		PreparedStatement pstmt = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			int a = pstmt.executeUpdate();
+
+			if (a == 0) {
+				JOptionPane.showMessageDialog(this, "없는 번호입니다");
+			} else {
+				JOptionPane.showMessageDialog(this, "삭제되었습니다");
+				mycarupdate.dispose();
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
 
 		if (ob == bt_jo) {
 			this.selectMycar();
+		} else if (ob == mycarupdate.bt_su) {
+
+			String mnum = JOptionPane.showInputDialog("차량 번호 뒷자리를 입력해주세요");
+			updateMycar(mnum);
+
+		} else if ( ob == mycarupdate.bt_del) {
+			String mnum = JOptionPane.showInputDialog("차량 번호 뒷자리를 입력해주세요");
+			deleteMycar(mnum);
+			
 		}
 	}
 

@@ -1,17 +1,22 @@
 package swing;
 
 import java.awt.Color;
+
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.security.AlgorithmConstraints;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -29,9 +34,11 @@ public class MycarUpdate extends JFrame {
 	JLabel com, cmodel, fuel, fe, op, dis, en, sh, size, price;
 	JButton bt_su, bt_del;
 
-	JLabel img, mnum, mrd, mgumsa, mavgac, mengine, mtire, mmile ;
+	JLabel img, mnum, mrd, mgumsa, mavgac, mengine, mtire, mmile;
 	JTextField tf1, tf2, tf3, tf4, tf5;
 	JComboBox<String> cbengine, cbtire;
+
+	//CarMainList cm = new CarMainList();
 
 	public MycarUpdate() {
 		super("내 자동차 정보");
@@ -41,7 +48,7 @@ public class MycarUpdate extends JFrame {
 		this.setBounds(300, 100, 800, 690);
 		cp.setBackground(new Color(255, 255, 255));
 		initDesign();
-		//this.setVisible(true);
+		this.setVisible(true);
 	}
 
 	public void initDesign() {
@@ -93,15 +100,41 @@ public class MycarUpdate extends JFrame {
 		lbl8.setForeground(new Color(128, 128, 128));
 		car1.add(lbl8);
 
-		JLabel car_company = new JLabel("현대");
-		JLabel car_model = new JLabel("아이오닉5");
+		fuel = new JLabel();
+		fe = new JLabel();
+		op = new JLabel();
+		dis = new JLabel();
+		en = new JLabel();
+		sh = new JLabel();
+		size = new JLabel();
+		price = new JLabel();
 
-		car_company.setBounds(27, 25, 60, 30);
-		car_company.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		car1.add(car_company);
-		car_model.setBounds(90, 25, 120, 30);
-		car_model.setFont(new Font("맑은 고딕", Font.BOLD, 25));
-		car1.add(car_model);
+		fuel.setBounds(80, 80, 120, 30);
+		car1.add(fuel);
+		fe.setBounds(80, 120, 120, 30);
+		car1.add(fe);
+		op.setBounds(80, 160, 120, 30);
+		car1.add(op);
+		dis.setBounds(80, 200, 120, 30);
+		car1.add(dis);
+		en.setBounds(290, 80, 120, 30);
+		car1.add(en);
+		sh.setBounds(290, 120, 120, 30);
+		car1.add(sh);
+		size.setBounds(290, 160, 120, 30);
+		car1.add(size);
+		price.setBounds(290, 200, 120, 30);
+		car1.add(price);
+
+		com = new JLabel("현대");
+		cmodel = new JLabel("아이오닉5");
+
+		com.setBounds(27, 25, 60, 30);
+		com.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		car1.add(com);
+		cmodel.setBounds(90, 25, 120, 30);
+		cmodel.setFont(new Font("맑은 고딕", Font.BOLD, 25));
+		car1.add(cmodel);
 
 		bt_su = new JButton("수정");
 		bt_su.setBounds(590, 605, 80, 30);
@@ -171,31 +204,42 @@ public class MycarUpdate extends JFrame {
 		car2.add(tf4);
 		tf5.setBounds(380, 216, 200, 30);
 		car2.add(tf5);
-		
-		String [] engine = {"교체 완료","교체 필요"};
+
+		String[] engine = { "교체 완료", "교체 필요" };
 		cbengine = new JComboBox<String>(engine);
 		cbengine.setBounds(380, 58, 200, 30);
 		car2.add(cbengine);
-		
-		String [] tire = {"이상 없음","이상 있음","이상 있음(교체 필요)"};
-		cbtire = new JComboBox<String>(tire);
-		cbtire.setBounds(380 , 137, 200, 30);
-		car2.add(cbtire);
-		
-		
 
-		ImageIcon icon = new ImageIcon("image/car1.png");
+		String[] tire = { "이상 없음", "이상 있음", "이상 있음(점검 필요)" };
+		cbtire = new JComboBox<String>(tire);
+		cbtire.setBounds(380, 137, 200, 30);
+		car2.add(cbtire);
+
+		ImageIcon icon = new ImageIcon("image/car2.png");
 		Image img = icon.getImage();
-		Image changeImg = img.getScaledInstance(300, 100, Image.SCALE_SMOOTH);
+		Image changeImg = img.getScaledInstance(300, 130, Image.SCALE_SMOOTH);
 		ImageIcon changeIcon = new ImageIcon(changeImg);
 		JLabel lbimage = new JLabel(changeIcon, JLabel.CENTER);
-		lbimage.setBounds(30, 30, 250, 100);
+		lbimage.setBounds(40, 60, 250, 200);
 		add(lbimage);
 
 	}
+/*
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object ob = e.getSource();
+		
+		if (ob == bt_su) {
 
-	//public static void main(String[] args) {
-	//	new MycarUpdate();
-	//}
+			String mnum = JOptionPane.showInputDialog("차량 번호 뒷자리를 입력해주세요");
+			cm.updateMycar(mnum);
+
+		}
+
+	}
+*/
+	public static void main(String[] args) {
+	new MycarUpdate();
+	}
 
 }
