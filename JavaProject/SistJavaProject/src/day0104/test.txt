@@ -1,8 +1,4 @@
-안녕
-오늘은 깃 테스트 중이야
 
-
-ㅋㅋㅋㅋ
 git init
 git add .
 git commit -m "1"
