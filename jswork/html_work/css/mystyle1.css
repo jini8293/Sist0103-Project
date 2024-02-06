@@ -1,0 +1,22 @@
+#box{
+    background-color: #ff9999;
+    width: 800px;
+    height: 500px;
+    margin: auto;
+    color: white;
+}
+
+#box h1{
+    text-align: center;
+    padding-top: 50px;
+}
+
+#box ul li{
+    list-style: none;
+    padding-left: 100px;
+    margin-right: 10px;
+    background-color: pink;
+    color: black;
+    
+
+}

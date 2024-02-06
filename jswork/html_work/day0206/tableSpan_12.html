@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb2 {
+            width: 400px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb2 td,
+        .tb2 th {
+            border: 1px solid green;
+        }
+
+        .tb4{
+            width: 400px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb4 td,
+        .tb4 th {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" width="300">
+        <caption>[표1]</caption>
+        <tr height="50">
+            <td align="center">one</td>
+            <td align="center">two</td>
+            <td align="center">three</td>
+        </tr>
+
+        <tr align="center" hight="50">
+            <td colspan="3">one</td>
+        </tr>
+    </table>
+    <br>
+    <table class="tb2">
+        <caption><b>[표2]</b> </caption>
+        <tr height="40">
+            <th>사진</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>핸드폰</th>
+        </tr>
+
+        <tr>
+            <td rowspan="3" align="center">
+                <img src="../image/logoImg/icon02.png" width="100">
+            </td>
+            <td>박보영</td>
+            <td>충남 아산시</td>
+            <td>010-1456-3296</td>
+        </tr>
+
+        <tr>
+            <td>김수경</td>
+            <td>서울 강남구</td>
+            <td>010-1457-3124</td>
+        </tr>
+
+        <tr>
+            <td>손흥민</td>
+            <td>부산 서귀포</td>
+            <td>010-9545-1938</td>
+        </tr>
+    </table>
+
+    <br>
+    <hr>
+    <br>
+    <table class="tb2">
+        <caption><b>[이력서]</b> </caption>
+        <tr height="40">
+            <th>사진</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>핸드폰</th>
+        </tr>
+
+        <tr>
+            <td rowspan="3" align="center">
+                사진
+            </td>
+            <td colspan="3" align="center">이름</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center">주소</td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">학교</td>
+            <td rowspan="2" align="center">(인)</td>
+
+        </tr>
+
+        <tr>
+            <td colspan="3" align="center">할말</td>
+        </tr>
+    </table>
+
+    <br>
+    <hr>
+    <br>
+    <table class="tb4">
+        <caption><b>[표4 / 3행3열]</b> </caption>
+        <tr height="40">
+            <th>이름</th>
+            <th>사진</th>
+            <th>개인정보</th>
+           
+        </tr>
+
+        <tr>
+            <td align="center" rowspan="3">최민수</td>
+            <td rowspan="3" align="center"><img src="../image/만화이미지/05.png" ></td>
+            <td align="center">010-2285-2985</td>
+        </tr>
+
+        <tr>
+            <td align="center">경제학과</td>
+        </tr>
+
+        <tr>
+            <td align="center">4학년</td>
+        </tr>
+    </table>
+</body>
+
+</html>
