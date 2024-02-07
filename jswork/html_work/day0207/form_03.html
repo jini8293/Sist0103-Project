@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>상품 주문서</h1>
+        <form action="">
+            <fieldset>
+                <legend>개인정보</legend>
+                <ul>
+                    <li>
+                        <label for="">이름</label>
+                        <input type="text" placeholder="이름을 입력해주세요" required>
+                    </li>
+                    <li>
+                        <label for="">연락처</label>
+                        <input type="tel" placeholder="전화번호를 입력해주세요">
+                    </li>
+                </ul>
+            </fieldset>
+
+            <fieldset>
+                <legend>배송지 정보</legend>
+                <ul>
+                    <li>
+                        <label for="">주소</label>
+                        <input type="text" placeholder="주소를 입력해주세요" size="40" required>
+                    </li>
+                    <li>
+                        <label for="">핸드폰</label>
+                        <input type="tel" placeholder="전화번호를 입력해주세요">
+                    </li>
+                    <li>
+                        <label for="">배송시 남길 메모</label>
+                        <textarea cols="40" rows="5"></textarea>
+                    </li>
+                </ul>
+            </fieldset>
+
+            <div style="text-align: center;">
+                <input type="submit" value="주문하기">
+                <button type = "reset">다시 작성</button>
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <div>
+                <ul>
+                    <li>
+                        <label for="">점유율</label>
+                        <meter value = "0.8"></meter>
+                    </li>
+                    <li>
+                        <label for="">사용량 65 %</label>
+                        <meter value = "65" max="100" min="0"></meter>
+                    </li>
+                    <li>
+                        <label for="">트래픽 초과</label>
+                        <meter max="10350" min="1020"vlow=2055 high="8090"value>low=2055
+                            
+                        </meter>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
