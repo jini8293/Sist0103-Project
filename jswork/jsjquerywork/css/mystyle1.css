@@ -1,9 +1,10 @@
-#box{
+.box{
     background-color: #ff9999;
     width: 800px;
     height: 500px;
     margin: auto;
-    color: white;
+    color: black;
+    border: 1px solid gray;
 }
 
 #box h1{
