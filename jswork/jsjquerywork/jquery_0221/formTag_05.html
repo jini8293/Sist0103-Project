@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=IBM+Plex+Sans+KR&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid gray;
+            padding: 20px 20px 20px 20px;
+            width: 610px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h2 style="font-family:Gowun Dodum;">폼태그 연습_#1</h2>
+    <div>
+        <input type="text" style="width: 150px;" placeholder="이름">
+
+        <input type="password" style="width: 150px;" placeholder="비밀번호">
+    </div>
+
+    <script>
+        //포커스 갈경우 배경색
+        $("input:text,input:password").focus(function () {
+            $(this).css("background-color", "pink");
+        })
+
+        //blur, focusout 가능
+        $("input:text,input:password").blur(function () {
+            $(this).css("background-color", "white");
+        })
+    </script>
+
+    <br>
+    <hr>
+    <h2 style="font-family:Gowun Dodum;">폼태그 연습_#2</h2>
+    <div>
+        <input type="checkbox" id="cblisence" value="un">운전면허
+        &nbsp;&nbsp;
+        <button type="button" id="btn1" class="btn btn-dark">확인</button>
+        &nbsp;&nbsp;<span></span>
+    </div>
+
+    <script>
+        $("#btn1").click(function () {
+            var a = $("#cblisence").val();
+            var b = $("#cblisence").is(":checked");
+            $("span:eq(0)").html(a + "," + b);
+        })
+    </script>
+    <br>
+    <hr>
+    <br>
+    <h2 style="font-family:Gowun Dodum;">폼태그 연습_#3</h2>
+    <b>당신의 연령대</b>
+    <input type="radio" name="age" value="20대">20대
+    <input type="radio" name="age" value="30대">30대
+    <input type="radio" name="age" value="40대">40대
+    <input type="radio" name="age" value="50대">50대
+    <input type="radio" name="age" value="60대 이후">60대 이후
+
+    &nbsp;&nbsp;&nbsp;
+    <button type="button" id="btn2" class="btn btn-dark">연령대 출력</button>
+    <span></span>
+
+    <script>
+        $("#btn2").click(function () {
+            var data = $("input[name='age']:checked").val(); //태그값 가져오기
+            $("span:eq(1)").html("&nbsp;&nbsp;" + data)
+        })
+    </script>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2 style="font-family:Gowun Dodum;">폼태그 연습_#4</h2>
+    <div>
+        <b>여행을 가본 나라</b>&nbsp;&nbsp;&nbsp;
+        <input type="checkbox" name="nara" value="프랑스">프랑스
+        <input type="checkbox" name="nara" value="영국">영국
+        <input type="checkbox" name="nara" value="체코">체코
+        <input type="checkbox" name="nara" value="일본">일본
+        <input type="checkbox" name="nara" value="이탈리아">이탈리아
+    </div>
+    <br>&nbsp;&nbsp;&nbsp;
+    <button type="button" id="btn3" class="btn btn-dark">가본나라 출력</button>
+    &nbsp;&nbsp;&nbsp;<span></span>
+
+    <script>
+        $("#btn3").click(function () {
+            var len = $("input[name='nara']:checked").length;
+
+            var s = "체크된 갯수: " + len + "&nbsp;";
+
+            if (len == 0) {
+                s += "가본나라 없음";
+            } else {
+                $("input[name='nara']:checked").each(function (i, ele) {
+                    s += $(this).val() + "&nbsp;";
+                })
+            }
+            $("span:eq(2)").html(s);
+        });
+    </script>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h2 style="font-family:Gowun Dodum;">폼태그 연습_#5</h2>
+    <div>
+        <select id="selone">
+            <option value="red">빨강</option>
+            <option value="pink">핑크</option>
+            <option value="yellowgreen">옐로그린</option>
+            <option value="skyblue">하늘</option>
+            <option value="bisque">베이지</option>
+            <option value="plum">플럼</option>
+        </select>
+        &nbsp;&nbsp;&nbsp;
+        <button type="button" id="btn4" class="btn btn-dark">색상 가져오기</button>
+        &nbsp;&nbsp;&nbsp;<span></span>
+    </div>
+
+    <script>
+        $("#btn4").click(function(){
+            var color = $("#selone option:selected").val();
+            var b = $("#selone option:selected").text();
+
+            var s = "선택 text: "+b+", 선택 val: "+color;
+            $("span:eq(3)").css("color",color).text(b).html(s);
+        })
+    </script>
+</body>
+
+</html>
